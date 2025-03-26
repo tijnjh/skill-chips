@@ -31,16 +31,19 @@ Add skill badges to your markdown files using this URL pattern:
 
 1. Clone this repository
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
 
 4. Build for production:
+
 ```bash
 npm run build
 ```

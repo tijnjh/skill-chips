@@ -1,22 +1,19 @@
 import { render } from 'svelte/server';
 import image from './SkillChip.svelte';
 
-async function getIcon(icon: string): Promise<string> {
-	const iconLower = icon.toLowerCase();
-	const url = `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${iconLower}/${iconLower}-original.svg`;
-
-	const response = await fetch(url);
-	return await response.text();
-}
-
 export async function GET(req) {
 	const sp = (p: string) => req.url.searchParams.get(p);
 
 	const level = sp('lvl');
-	const skill = req.params.skill;
-	const specifiedIcon = sp('icon');
-	const icon = await getIcon(specifiedIcon ?? skill);
-	const { body } = render(image, { props: { skill, level, icon } });
+	const skill = req.params.skill.toLowerCase();
+
+	const url =
+		'https://raw.githubusercontent.com/tijnjh/technologies.json/refs/heads/main/technologies.json';
+
+	const response = await (await fetch(url)).json();
+	const item = response.find((i: any) => i.id.includes(skill));
+
+	const { body } = render(image, { props: { level, technology: item } });
 
 	return new Response(body, {
 		headers: {
