@@ -33,7 +33,14 @@
 
 	<rect {width} {height} fill={color} />
 
-	<text x="65" y="33" fill={textColor} font-family="Inter" font-size="25" font-weight="600">
+	<text
+		x="65"
+		y="33"
+		fill={textColor}
+		font-family="Inter, system-ui"
+		font-size="25"
+		font-weight="600"
+	>
 		{skill}
 	</text>
 
