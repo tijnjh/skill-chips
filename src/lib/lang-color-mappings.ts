@@ -609,5 +609,12 @@ export const langColorMappings = {
 	templ: '#66D0DD',
 	vCard: '#ee2647',
 	wisp: '#7582D1',
-	xBase: '#403a40'
+	xBase: '#403a40',
+
+	// manual ones
+	React: "#087ea4",
+	Docker: "#009732",
+	Figma: "#0d99ff",
+	Vim: "#008329",
+	Git: "#413000",
 };
