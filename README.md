@@ -1,38 +1,57 @@
-# sv
+# Skill Chips
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Generate beautiful skill badges for your GitHub profile or documentation.
 
-## Creating a project
+![Svelte Skill](https://skill-chips.vercel.app/v1/Svelte?lvl=advanced)
+![Go Skill](https://skill-chips.vercel.app/v1/Go?lvl=intermediate)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Usage
 
-```bash
-# create a new project in the current directory
-npx sv create
+Add skill badges to your markdown files using this URL pattern:
 
-# create a new project in my-app
-npx sv create my-app
+```markdown
+![Skill Name](https://skill-chips.vercel.app/v1/[skill]?lvl=[level])
 ```
 
-## Developing
+### Parameters
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- `[skill]`: Programming language or technology name (e.g. `JavaScript`, `Python`, `React`)
+- `lvl`: Proficiency level (`beginner`, `intermediate`, or `advanced`)
+- `icon` (optional): Override the default icon name from devicon
 
+### Examples
+
+```markdown
+![TypeScript](https://skill-chips.vercel.app/v1/TypeScript?lvl=advanced)
+![React](https://skill-chips.vercel.app/v1/React?lvl=intermediate)
+![Python](https://skill-chips.vercel.app/v1/Python?lvl=beginner)
+```
+
+## Development
+
+1. Clone this repository
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
+4. Build for production:
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## How It Works
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Built with [SvelteKit](https://kit.svelte.dev/)
+- Uses [DevIcon](https://devicon.dev/) for technology icons
+- Dynamically generates SVG badges using [Svelte components](src/routes/v1/[skill]/SkillChip.svelte)
+- Color mappings based on GitHub's language colors
+
+## License
+
+MIT
