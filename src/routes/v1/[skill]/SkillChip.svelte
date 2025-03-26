@@ -37,7 +37,7 @@
 		{skill}
 	</text>
 
-	<text x="65" y="55" fill={textColor} opacity=".6" font-family="Inter" font-size="20">
+	<text x="65" y="55" fill={textColor} opacity=".6" font-family="Inter, system-ui" font-size="20">
 		{level.charAt(0).toUpperCase() + level.slice(1)}
 	</text>
 
