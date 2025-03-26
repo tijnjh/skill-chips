@@ -3,7 +3,7 @@ import image from './SkillChip.svelte';
 
 async function getIcon(icon: string): Promise<string> {
 	const iconLower = icon.toLowerCase();
-	const url = `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${iconLower}/${iconLower}-original.svg`;
+	const url = `https://github.com/devicons/devicon/tree/v2.16.0/icons/${iconLower}/${iconLower}-original.svg`;
 
 	const response = await fetch(url);
 	return await response.text();

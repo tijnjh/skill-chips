@@ -5,72 +5,79 @@
 	const { level, skill, icon } = $props();
 
 	const color = langColorMappings[skill];
-	const textColor = typeof color === 'string' ? findTextColor(hexRgb(color)) : '#fff';
+	const textColor = '#000';
 
-	const width = 285;
+	const width = 320;
 	const height = 70;
 
-	function findTextColor(bgColor: { red: number; green: number; blue: number }) {
-		const { red, green, blue } = bgColor;
-
-		const r = red / 255;
-		const g = green / 255;
-		const b = blue / 255;
-
-		const luminance =
-			0.2126 * (r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4)) +
-			0.7152 * (g <= 0.03928 ? g / 12.92 : Math.pow((g + 0.055) / 1.055, 2.4)) +
-			0.0722 * (b <= 0.03928 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4));
-
-		return luminance > 0.4 ? 'black' : 'white';
-	}
+	const offset = 35;
 </script>
 
-<svg viewBox="0 0 {width} {height}" width="128" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 {width + 4} {height + 4}" width="150" xmlns="http://www.w3.org/2000/svg">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Inter');
 	</style>
 
-	<rect {width} {height} fill={color} />
+	<rect
+		width={width - 85}
+		{height}
+		x="2"
+		y="2"
+		fill={color}
+		fill-opacity=".3"
+		stroke={color}
+		stroke-width="2"
+		rx="10"
+	/>
 
 	<text
-		x="65"
+		x="70"
 		y="33"
 		fill={textColor}
 		font-family="Inter, system-ui"
-		font-size="25"
+		font-size="22.5"
 		font-weight="600"
 	>
 		{skill}
 	</text>
 
-	<text x="65" y="55" fill={textColor} opacity=".6" font-family="Inter, system-ui" font-size="20">
+	<text x="70" y="55" fill={textColor} opacity=".6" font-family="Inter, system-ui" font-size="20">
 		{level.charAt(0).toUpperCase() + level.slice(1)}
 	</text>
 
-	<rect width="80" x="220" {height} fill="#f5f5f5" />
+	<rect
+		width={height}
+		{height}
+		x={width - 70}
+		y="2"
+		fill={color}
+		fill-opacity=".3"
+		stroke={color}
+		stroke-width="2"
+		rx="10"
+	/>
 
 	<g>
 		{#if level === 'beginner'}
-			{@render bar(230, '#FFA726')}
-			{@render bar(245, '#FFA72650')}
-			{@render bar(260, '#FFA72650')}
+			{@render bar(230 + offset, '#FFA726')}
+			{@render bar(245 + offset, '#FFA72650')}
+			{@render bar(260 + offset, '#FFA72650')}
 		{:else if level === 'intermediate'}
-			{@render bar(230, '#7CB342')}
-			{@render bar(245, '#7CB342')}
-			{@render bar(260, '#7CB34250')}
+			{@render bar(230 + offset, '#7CB342')}
+			{@render bar(245 + offset, '#7CB342')}
+			{@render bar(260 + offset, '#7CB34250')}
 		{:else if level === 'advanced'}
-			{@render bar(230, '#2E7D32')}
-			{@render bar(245, '#2E7D32')}
-			{@render bar(260, '#2E7D32')}
+			{@render bar(230 + offset, '#2E7D32')}
+			{@render bar(245 + offset, '#2E7D32')}
+			{@render bar(260 + offset, '#2E7D32')}
 		{/if}
 	</g>
 
-	<svg width="40" x="12.5">
+	<svg width="40" x="15">
 		{@html icon}
 	</svg>
 </svg>
 
 {#snippet bar(x: number, fill: string)}
-	<rect {x} y="15" width="10" height="40" {fill} />
+	<rect {x} y="16.6" width="10" height="40" {fill} />
 {/snippet}
