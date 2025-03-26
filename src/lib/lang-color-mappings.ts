@@ -613,7 +613,7 @@ export const langColorMappings = {
 
 	// manual ones
 	React: "#087ea4",
-	Docker: "#009732",
+	Docker: "#00084d",
 	Figma: "#0d99ff",
 	Vim: "#008329",
 	Git: "#413000",
