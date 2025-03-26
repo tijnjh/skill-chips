@@ -27,13 +27,17 @@
 </script>
 
 <svg viewBox="0 0 {width} {height}" width="128" xmlns="http://www.w3.org/2000/svg">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter');
+	</style>
+
 	<rect {width} {height} fill={color} />
 
-	<text x="65" y="33" fill={textColor} font-family="monospace" font-size="25" font-weight="600">
+	<text x="65" y="33" fill={textColor} font-family="Inter" font-size="25" font-weight="600">
 		{skill}
 	</text>
 
-	<text x="65" y="50" fill={textColor} font-family="monospace" font-size="20">
+	<text x="65" y="55" fill={textColor} opacity=".6" font-family="Inter" font-size="20">
 		{level.charAt(0).toUpperCase() + level.slice(1)}
 	</text>
 
