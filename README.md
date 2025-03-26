@@ -51,7 +51,3 @@ npm run build
 - Uses [DevIcon](https://devicon.dev/) for technology icons
 - Dynamically generates SVG badges using [Svelte components](src/routes/v1/[skill]/SkillChip.svelte)
 - Color mappings based on GitHub's language colors
-
-## License
-
-MIT
