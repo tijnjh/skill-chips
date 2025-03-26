@@ -26,8 +26,8 @@
 
 	function getBarWidthByLevel(level: string) {
 		switch (level.toLowerCase()) {
-			case 'beginnner':
-				return 0.25; // 25%
+			case 'beginner':
+				return 0.25;
 			case 'learning':
 				return 0.5; // 50%
 			case 'intermediate':
@@ -41,16 +41,16 @@
 
 	function getBarColorByLevel(level: string) {
 		switch (level.toLowerCase()) {
-			case 'beginnner':
-				return '#FF6B6B'; // Light red
+			case 'beginner':
+				return 'oklch(0.795 0.184 86.047)';
 			case 'learning':
-				return '#4ECDC4'; // Turquoise
+				return 'oklch(0.768 0.233 130.85)';
 			case 'intermediate':
-				return '#45B7D1'; // Sky blue
+				return 'oklch(0.723 0.219 149.579)';
 			case 'advanced':
-				return '#96CEB4'; // Sage green
+				return 'oklch(0.696 0.17 162.48)';
 			default:
-				return '#CCCCCC'; // Gray
+				return '#ccc';
 		}
 	}
 </script>
@@ -67,7 +67,7 @@
 		</linearGradient>
 	</defs>
 
-	<rect {width} {height} overflow="hidden" fill="url(#skillGradient)" />
+	<rect {width} {height} fill="url(#skillGradient)" />
 	<text
 		x="65"
 		y="33"
