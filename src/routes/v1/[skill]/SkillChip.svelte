@@ -50,7 +50,6 @@
 			font-family:
 				-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif,
 				'Apple Color Emoji', 'Segoe UI Emoji';
-			color: #59636e;
 		}
 	</style>
 
