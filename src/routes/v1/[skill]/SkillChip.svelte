@@ -65,59 +65,26 @@
 		stroke-opacity="1"
 	/>
 
-	<g>
-		<circle cx="17.5" cy="17.5" r="5" fill={technology.color} />
+	<svg height="25" width="25" y="12.5" x="10">
+		{@html technology.icon}
+	</svg>
 
-		<text x="25" y="21.5" fill="#59636e" font-size="12">
-			{technology.name}
-		</text>
-	</g>
-
-	<text x="12.5" y="37.5" fill="#59636e" font-size="10">
-		{level.charAt(0).toUpperCase() + level.slice(1)}
+	<text x="42" y="21.5" fill="#59636e" font-size="12">
+		{technology.name}
 	</text>
-
-	{#if level}
-		{@const gap = 17.5}
-		{#if level === 'beginner'}
-			{@render levelIndicator(true)}
-			{@render levelIndicator(false, gap)}
-			{@render levelIndicator(false, 0, gap)}
-			{@render levelIndicator(false, gap, gap)}
-		{:else if level === 'learning'}
-			{@render levelIndicator(true)}
-			{@render levelIndicator(true, gap)}
-			{@render levelIndicator(false, 0, gap)}
-			{@render levelIndicator(false, gap, gap)}
-		{:else if level === 'intermediate'}
-			{@render levelIndicator(true)}
-			{@render levelIndicator(true, gap)}
-			{@render levelIndicator(true, 0, gap)}
-			{@render levelIndicator(false, gap, gap)}
-		{:else if level === 'advanced'}
-			{@render levelIndicator(true)}
-			{@render levelIndicator(true, gap)}
-			{@render levelIndicator(true, 0, gap)}
-			{@render levelIndicator(true, gap, gap)}
-		{/if}
-	{/if}
-</svg>
-
-{#snippet levelIndicator(active: boolean, x: number = 0, y: number = 0)}
-	{@const baseX = 110}
-	{@const baseY = 10}
-	{@const size = 12.5}
-	{@const fill = active ? getColorByLevel(level) : '#eff2f5'}
-	{@const stroke = shadeColor(fill, -6)}
 
 	<rect
 		rx="3"
-		x={baseX + x}
-		y={baseY + y}
-		width={size}
-		height={size}
-		{fill}
-		{stroke}
+		x="42.5"
+		y="27.5"
+		width="10"
+		height="10"
+		fill={getColorByLevel(level)}
+		stroke={shadeColor(getColorByLevel(level), -6)}
 		stroke-width=".5"
 	/>
-{/snippet}
+
+	<text x="55" y="36" fill="#59636e" font-size="10">
+		{level.charAt(0).toUpperCase() + level.slice(1)}
+	</text>
+</svg>
