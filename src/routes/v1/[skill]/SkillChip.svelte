@@ -74,11 +74,11 @@
 	</text>
 
 	<rect
-		rx="3"
+		rx="2"
 		x="42.5"
-		y="27.5"
-		width="10"
-		height="10"
+		y="28.5"
+		width="8"
+		height="8"
 		fill={getColorByLevel(level)}
 		stroke={shadeColor(getColorByLevel(level), -6)}
 		stroke-width=".5"
